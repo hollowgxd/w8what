@@ -17,8 +17,7 @@ img{
 }
 .wrapper{
     background: rgba(28, 28, 28, 1);
-    width: 100%;
-    height: 100%;
+    background-size: auto;
 }
 .container{
     width: 1400px;
@@ -40,6 +39,8 @@ header nav ul{
     list-style: none;
     display: flex;
     justify-content: space-between;
+    z-index: 2;
+    position: relative;
 }
 header nav ul li{
     display: inline-block;
@@ -73,6 +74,7 @@ header nav ul li.btn a:hover{
 .hero{
     padding-bottom: 100px;
     position: relative;
+    z-index: 1;
 }
 .hero--info{
     width: 530px;
@@ -108,6 +110,7 @@ header nav ul li.btn a:hover{
 }
 .hero img{
     position: absolute;
-    top: -150;
-    right: 0;
+    top: 290px;
+    right: -400px;
+    transform: scale(-1, 1)
 }
