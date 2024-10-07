@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 16px;
+}
+a {
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+.wrapper{
+    background: rgba(28, 28, 28, 1);
+    width: 100%;
+    height: 100%;
+}
+.container{
+    width: 1400px;
+    margin:0 auto;
+}
+header {
+    padding: 50px 0;
+}
+header .logo{
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 700;
+}
+header nav{
+    float: right;
+    width: 50%;
+}
+header nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+header nav ul li{
+    display: inline-block;
+}
+header nav ul li a{
+    color: #fff;
+}
+header nav ul li.active::after{
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    background: #6D2CF6;
+    border-radius: 10px;
+}
+
+.container nav ul li:not(.btn) a:hover{
+    border-bottom: 5px solid #6D2CF6;
+    
+}
+header nav ul li.btn a{
+    background: #6D2CF6;
+    padding: 9px 17px;
+    border-radius: 5px;
+    transition: all 500ms ease;
+}
+header nav ul li.btn a:hover{
+    background: #2e1368;
+
+}
+.hero{
+    padding-bottom: 100px;
+    position: relative;
+}
+.hero--info{
+    width: 530px;
+    padding-top: 70px;
+}
+.hero--info h2{
+    color: #985ce6;
+    font-size: 26px;
+    font-weight: 800;
+}
+.hero--info h1{
+    font-size: 58px;
+    font-weight: 800;
+}
+.hero--info p {
+
+    font-weight: 500;
+    line-height: 150%;
+    margin: 30px 0;
+}
+.hero--info .btn {
+    background: #6D2CF6;
+    color: #fff;
+    border-radius:50px ;
+    padding: 15px 30px;
+    border: 0;
+    transition: all 500ms ease;
+    font-size: 15px;
+}
+.hero--info .btn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.hero img{
+    position: absolute;
+    top: -150;
+    right: 0;
+}
