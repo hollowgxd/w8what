@@ -23,6 +23,7 @@ img{
     width: 1400px;
     margin:0 auto;
 }
+/* Заголовок странички*/
 header {
     padding: 50px 0;
 }
@@ -71,6 +72,7 @@ header nav ul li.btn a:hover{
     background: #2e1368;
 
 }
+/* Страничка с информацией*/
 .hero{
     padding-bottom: 100px;
     position: relative;
@@ -86,7 +88,7 @@ header nav ul li.btn a:hover{
     font-weight: 800;
 }
 .hero--info h1{
-    font-size: 58px;
+    font-size: 48px;
     font-weight: 800;
 }
 .hero--info p {
@@ -113,4 +115,51 @@ header nav ul li.btn a:hover{
     top: 290px;
     right: -400px;
     transform: scale(-1, 1)
+}
+.search-container {
+    position: relative; /* Для относительного позиционирования */
+    width: 300px;
+    margin: 50px auto;
+}
+
+/* Строка поиска */
+input[type="text"] {
+
+    position: relative;
+    top: -220px;  /* Сдвиг вверх относительно исходного положения */
+    right: -220px; /* Сдвиг влево относительно исходного положения */
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: #313131;
+    z-index: 999;
+}
+
+/* Список предложений */
+.suggestions-list {
+    position: relative;
+    top: -220px;  
+    right: -230px; 
+    width: 100%;
+    background-color: #494949; 
+    border: 2px solid #ffffff; 
+    border-top: none;
+    border-radius: 10px;
+    z-index: 998; 
+    max-height: 150px; 
+    overflow-y: auto; 
+    display: none; 
+}
+
+.suggestions-list div {
+    padding: 10px; 
+    cursor: pointer; 
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.suggestions-list div:hover {
+    background-color: #ffffff;
 }

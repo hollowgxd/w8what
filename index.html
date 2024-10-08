@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>w8what</title>
     <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -22,13 +22,18 @@
         <div class="hero container">
             <div class="hero--info">
                 <h2>Что умеет w8what</h2>
-                <h1>Ваш путеводитель к работе мечты</h1>
+                <h1>Станьте востребованным на рынке труда, овладев нужными технологиями</h1>
                 <p>На старте тяжело бывает понять, что от нас хочет работадатель? Какие технологии востребованы на рынке? С чем сейчас работают крупные предприятия? Сайт поможет вам найти информацию с крупных сервисов по поиску вакансий, чтобы вы получили ответы на все эти вопросы</p>
-                <button class="btn">Попробуйте сейчас</button>
+                <button class="btn">Перейти к поиску</button>
 
             </div>
             <img src="img/imgbin-silent-hill-homecoming-pyramid-head-silent-hill-2-others-Ss82KmanFBkp04THemZZwf7Mh-4294898856-removebg-preview.png" alt="">
         </div>
     </div>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Поиск по названию вакансии..." oninput="performSearch()">
+        <div id="suggestions" class="suggestions-list"></div>
+    <!--Подключение JavaScript-->
+    <script src="scripts/scripts.js"></script>
 </body>
 </html>
