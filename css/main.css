@@ -7,7 +7,7 @@ body{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     color: #fff;
-    font-size: 16px;
+    font-size: 1rem;
 }
 a {
     text-decoration: none;
@@ -123,11 +123,18 @@ header nav ul li.btn a:hover{
 }
 
 /* Строка поиска */
+
+div ul li.search-container a{
+
+    padding: 9px 17px;
+    border-radius: 5px;
+}
+
 input[type="text"] {
 
     position: relative;
-    top: -220px;  /* Сдвиг вверх относительно исходного положения */
-    right: -220px; /* Сдвиг влево относительно исходного положения */
+    top: 0px;  /* Сдвиг вверх относительно исходного положения */
+    right: 0px; /* Сдвиг влево относительно исходного положения */
     width: 100%;
     padding: 10px;
     border: 2px solid #ccc;
@@ -162,4 +169,5 @@ input[type="text"] {
 
 .suggestions-list div:hover {
     background-color: #ffffff;
+    color: #000000;
 }
