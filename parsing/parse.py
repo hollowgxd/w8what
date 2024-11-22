@@ -10,7 +10,6 @@ from easyoffer.settings import HEADERS
 from .models import Search, Skill, KeyWord
 from datetime import datetime
 
-
 def get_link(url):
     print('Start – get_link')
     url = url[29:]
