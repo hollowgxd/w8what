@@ -1,39 +1,173 @@
-
-#id-envelope{
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
 }
-.Popa {
-    background-color: rgb(250, 161, 255); ;
-    position: absolute;
-    z-index: 101;
-    left: 10px;
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 1rem;
 }
-.Popa:hover{
-    background-color: rgb(122, 0, 255); ;
+a {
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+.wrapper{
+    background: rgba(28, 28, 28, 1);
+    background-size: auto;
 }
 .container{
-    background-color: #393939; ;
-    width: 1920px;
-    height: 1080px;
+    width: 1400px;
+    margin:0 auto;
+}
+/* Заголовок странички*/
+header {
+    padding: 50px 0;
+}
+header .logo{
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 700;
+}
+header nav{
+    float: right;
+    width: 50%;
+}
+header nav ul{
+    list-style: none;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    z-index: 2;
+    position: relative;
 }
-.div1{
-    background-color: #007eff; ;
-    width: 100px;
-    height: 100px;
-    z-index: 100;
+header nav ul li{
+    display: inline-block;
 }
-.div2{
-    background-color: #ccff00; ;
-    width: 100px;
-    height: 100px;
-    z-index: 100;
+header nav ul li a{
+    color: #fff;
 }
-.div3{
-    background-color: #ff0000; ;
-    width: 100px;
-    height: 100px;
-    z-index: 100;
+header nav ul li.active::after{
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    background: #6D2CF6;
+    border-radius: 10px;
+}
+
+.container nav ul li:not(.btn) a:hover{
+    border-bottom: 5px solid #6D2CF6;
+
+}
+header nav ul li.btn a{
+    background: #6D2CF6;
+    padding: 9px 17px;
+    border-radius: 5px;
+    transition: all 500ms ease;
+}
+header nav ul li.btn a:hover{
+    background: #2e1368;
+
+}
+/* Страничка с информацией*/
+.hero{
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 1;
+}
+.hero--info{
+    width: 530px;
+    padding-top: 70px;
+}
+.hero--info h2{
+    color: #985ce6;
+    font-size: 26px;
+    font-weight: 800;
+}
+.hero--info h1{
+    font-size: 48px;
+    font-weight: 800;
+}
+.hero--info p {
+
+    font-weight: 500;
+    line-height: 150%;
+    margin: 30px 0;
+}
+.hero--info .btn {
+    background: #6D2CF6;
+    color: #fff;
+    border-radius:50px ;
+    padding: 15px 30px;
+    border: 0;
+    transition: all 500ms ease;
+    font-size: 15px;
+}
+.hero--info .btn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.hero img{
+    position: absolute;
+    top: 290px;
+    right: -400px;
+    transform: scale(-1, 1)
+}
+.search-container {
+    position: relative; /* Для относительного позиционирования */
+    width: 300px;
+    margin: 50px auto;
+}
+
+/* Строка поиска */
+
+div ul li.search-container a{
+
+    padding: 9px 17px;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+
+    position: relative;
+    top: 0px;  /* Сдвиг вверх относительно исходного положения */
+    right: 0px; /* Сдвиг влево относительно исходного положения */
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: #313131;
+    z-index: 999;
+}
+
+/* Список предложений */
+.suggestions-list {
+    position: absolute; /* Позиционируем относительно .search-container */
+    top: 100%; /* Располагаем под полем ввода */
+    left: 0;
+    width: 100%;
+    background-color: #494949;
+    border: 2px solid #ffffff;
+    border-top: none;
+    border-radius: 10px;
+    z-index: 10; /* Убедитесь, что элемент перекрывает другие */
+    max-height: 150px;
+    overflow-y: auto;
+    display: none; /* Скрыт по умолчанию */
+}
+
+.suggestions-list div {
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.suggestions-list div:hover {
+    background-color: #ffffff;
+    color: #000000;
 }
