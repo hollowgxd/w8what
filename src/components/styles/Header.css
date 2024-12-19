@@ -1,0 +1,64 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/*
+SemiBold 600
+Bold 700
+ExtraBold 800
+*/
+
+
+
+
+.container {
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+}
+
+
+
+
+
+
+
+header {
+    display: flex;
+    justify-content: space-between; /* Логотип слева, навигация справа */
+    align-items: center;       /* Выравнивание элементов по вертикали */
+    padding: 40px 50px;        /* Добавляем внутренние отступы */
+
+}
+
+
+header .logo {
+
+
+
+
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 58px;
+    color: #7D59FF;
+
+
+}
+
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 100px;
+}

@@ -1,0 +1,62 @@
+.search-container {
+  position: relative; /* Родительский контейнер для относительного позиционирования */
+  width: 300px;
+  margin: 50px auto;
+}
+
+.suggestions-list {
+  position: absolute; /* Позиционируем относительно .search-container */
+  top: 100%; /* Располагаем под полем ввода */
+  left: 0;
+  width: 100%;
+  background-color: #494949;
+  border: 2px solid #ffffff;
+  border-top: none;
+  border-radius: 10px;
+  z-index: 1000; /* Убедитесь, что элемент перекрывает другие */
+  max-height: 150px;
+  overflow-y: auto;
+  display: none; /* Скрыт по умолчанию */
+}
+
+.suggestions-list.show {
+  display: block; /* Отображаем, если добавлен класс show */
+}
+
+.suggestions-list div {
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.suggestions-list div:hover {
+  background-color: #6D2CF6;
+  color: #fff;
+}
+
+.action-row {
+  display: flex;
+  align-items: center; /* Вертикальное выравнивание */
+  gap: 20px; /* Расстояние между кнопкой и поиском */
+  margin-top: 20px; /* Отступ сверху */
+}
+
+.action-row .btn {
+  flex-shrink: 0; /* Кнопка не сжимается */
+}
+
+.action-row .search-container {
+  flex-grow: 1; /* Поле поиска растягивается, заполняя доступное пространство */
+  max-width: 400px; /* Ограничение ширины */
+}
+
+.search-container input[type="text"] {
+  width: 100%; /* Растягиваем поле на всю ширину контейнера */
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #313131;
+  color: #fff;
+}
