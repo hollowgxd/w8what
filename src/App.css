@@ -2,21 +2,22 @@
   position: relative; /* Родительский контейнер для относительного позиционирования */
   width: 300px;
   margin: 50px auto;
+  padding: 50px 30px;
 }
 
 .suggestions-list {
-  position: absolute; /* Позиционируем относительно .search-container */
-  top: 100%; /* Располагаем под полем ввода */
+  position: absolute;
+  top: 100%;
   left: 0;
   width: 100%;
   background-color: #494949;
   border: 2px solid #ffffff;
   border-top: none;
   border-radius: 10px;
-  z-index: 1000; /* Убедитесь, что элемент перекрывает другие */
+  z-index: 1000;
   max-height: 150px;
   overflow-y: auto;
-  display: none; /* Скрыт по умолчанию */
+  display: block;
 }
 
 .suggestions-list.show {
