@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+//ГРУБЫЙ СКЕЛЕТ ТАБЛЫ ДЛЯ БУДУЩЕГО ВЫВОДА, МБ НЕ ПРИГОДИТСЯ И ТОГДА СНОСИТЬ ВМЕСТЕ С ПАПКОЙ SEARCHENGINE
+/*import React, { useState } from "react";
 import StatisticsTable from "./StatisticsTable";
 import axios from "axios";
-/*import { useSearchContext } from "../searchEngine/SearchContext";*/
 
 const JobStatistics = () => {
-    /*const { searchQuery } = useSearchContext(); */
     const [skills, setSkills] = useState([]);
     const [keywords, setKeywords] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -82,7 +81,7 @@ const JobStatistics = () => {
                 }
             });
         }
-    }, [searchQuery]);*/
+    }, [searchQuery]);
 
     return (
         <div className="job-statistics">
@@ -96,4 +95,4 @@ const JobStatistics = () => {
     );
 };
 
-export default JobStatistics;
+export default JobStatistics;*/

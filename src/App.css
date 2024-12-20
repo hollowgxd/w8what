@@ -1,6 +1,6 @@
 .search-container {
-  position: relative; /* Родительский контейнер для относительного позиционирования */
-  width: 300px;
+  position: relative;
+  width: 50%;
   margin: 50px auto;
   padding: 50px 30px;
 }
@@ -20,10 +20,6 @@
   display: block;
 }
 
-.suggestions-list.show {
-  display: block; /* Отображаем, если добавлен класс show */
-}
-
 .suggestions-list div {
   padding: 10px;
   cursor: pointer;
@@ -38,22 +34,22 @@
 
 .action-row {
   display: flex;
-  align-items: center; /* Вертикальное выравнивание */
-  gap: 20px; /* Расстояние между кнопкой и поиском */
-  margin-top: 20px; /* Отступ сверху */
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .action-row .btn {
-  flex-shrink: 0; /* Кнопка не сжимается */
+  flex-shrink: 0;
 }
 
 .action-row .search-container {
-  flex-grow: 1; /* Поле поиска растягивается, заполняя доступное пространство */
-  max-width: 400px; /* Ограничение ширины */
+  flex-grow: 1;
+  max-width: 400px;
 }
 
 .search-container input[type="text"] {
-  width: 100%; /* Растягиваем поле на всю ширину контейнера */
+  width: 100%;
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 10px;

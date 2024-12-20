@@ -9,6 +9,8 @@ let accessToken = null;
 
 
 app.use(cors());
+//{origin: 'http://localhost:3000'}  // - Разрешить только запросы с фронтенда на порту 3000
+
 // Middleware для получения токена перед запросами
 const getToken = async () => {
     if (!accessToken) {
@@ -32,26 +34,24 @@ const getToken = async () => {
 
 // Эндпоинт для получения вакансий
 app.get("/api/vacancies", async (req, res) => {
-    const query = req.query.query;  // Получаем запрос (searchQuery) из параметров
+    const query = req.query.query;
 
     if (!query) {
         return res.status(400).json({ error: "Параметр query не найден" });
     }
 
     try {
-        await getToken(); // Убедитесь, что токен доступен
+        await getToken();
 
-        // Запрос к API HH для получения вакансий
         const response = await axios.get("https://api.hh.ru/vacancies", {
             params: {
-                text: query, // Поиск вакансий по запросу
-                access_token: accessToken // Добавляем токен для авторизации
+                text: query,
+                access_token: accessToken
             }
         });
 
-        res.json(response.data);  // Отправляем вакансии обратно клиенту
+        res.json(response.data); //Отправка данных обратно к клиенту
     } catch (error) {
-        console.error("Ошибка получения вакансий:", error);
         res.status(500).json({ error: "Ошибка при получении вакансий" });
     }
 });

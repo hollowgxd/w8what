@@ -1,20 +1,15 @@
 import React, { useState } from "react";
+import "./App.css";
+/*import axios from "axios";*/
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import EmptyPage from './temporary/EmptyPage';  // Ваш компонент пустой страницы
-import axios from "axios";
+//import Footer from "./components/Footer";
 
-const fetchToken = async () => {
-  try {
-    const response = await axios.get("http://localhost:8000/api/auth/token");
-    return response.data.access_token;
-  } catch (error) {
-    console.error("Ошибка при получении токена:", error);
-    throw error;
-  }
-};
+import ParseResults from './components/nav/ParseResults';
+
+
 
 
 function App() {
@@ -38,7 +33,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Hero />} />
-            <Route path="/empty-page" element={<EmptyPage />} />
+            <Route path="/empty-page" element={<ParseResults />} />
           </Routes>
         </div>
       </Router>
