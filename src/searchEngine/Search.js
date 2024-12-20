@@ -1,4 +1,4 @@
-/* Search.js
+/* Тут мб что-то не критичное упустил что рушит верстку, перенес этот функционал в Hero.js
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 

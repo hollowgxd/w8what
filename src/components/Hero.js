@@ -22,6 +22,8 @@ const Hero = () => {
     const handleInputChange = (event) => {
         const value = event.target.value;
 
+        setQuery(value);
+
         if (value.trim()) {
             const filteredJobs = jobs.filter((job) =>
                 job.toLowerCase().includes(value.toLowerCase())
@@ -82,10 +84,9 @@ const Hero = () => {
                         {suggestions.map((suggestion, index) => (
                             <div
                                 key={index}
-                                onClick={() => handleSuggestionClick(suggestion)}
-
-                            >
+                                onClick={() => handleSuggestionClick(suggestion)}>
                                 {suggestion}
+
                             </div>
                         ))}
                     </div>

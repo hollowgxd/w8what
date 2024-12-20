@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-const EmptyPage = ({/* searchQuery*/ }) => {
+const ParseResults = ({/* searchQuery*/ }) => {
     const location = useLocation();
     const searchQuery = location.state?.searchQuery || "";
     const [vacancies, setVacancies] = useState([]);
@@ -61,4 +61,4 @@ const EmptyPage = ({/* searchQuery*/ }) => {
     );
 };
 
-export default EmptyPage;
+export default ParseResults;

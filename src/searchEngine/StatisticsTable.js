@@ -1,4 +1,5 @@
 import React from "react";
+//потом реворкнем сделаем вывод на страничку отсюда
 
 const StatisticsTable = ({ title, data }) => {
     return (
