@@ -19,10 +19,6 @@ img{
     background: rgba(28, 28, 28, 1);
     background-size: auto;
 }
-.container{
-    width: 1400px;
-    margin:0 auto;
-}
 
 /* Страничка с информацией*/
 .hero{
@@ -67,9 +63,4 @@ img{
     top: 290px;
     right: -400px;
     transform: scale(-1, 1)
-}
-.search-container {
-    position: relative; /* Для относительного позиционирования */
-    width: 300px;
-    margin: 50px auto;
 }

@@ -5,9 +5,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import EmptyPage from './temporary/EmptyPage';  // Ваш компонент пустой страницы
 import axios from "axios";
-import { SearchProvider } from "./searchEngine/SearchContext";
-import Search from "./searchEngine/Search";
-/*
+
 const fetchToken = async () => {
   try {
     const response = await axios.get("http://localhost:8000/api/auth/token");
@@ -16,7 +14,7 @@ const fetchToken = async () => {
     console.error("Ошибка при получении токена:", error);
     throw error;
   }
-};*/
+};
 
 
 function App() {
@@ -36,19 +34,13 @@ function App() {
   return (
 
       <Router>
-        <SearchProvider>
         <div className="wrapper">
           <Header />
-          <div className="hero container">
-            <Hero />
-          </div>
-          <Search /> {/* Здесь компонент Search */}
           <Routes>
-            <Route path="/" element={<Search />} />
+            <Route path="/" element={<Hero />} />
             <Route path="/empty-page" element={<EmptyPage />} />
           </Routes>
         </div>
-        </SearchProvider>
       </Router>
 
   );

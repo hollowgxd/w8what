@@ -1,13 +1,11 @@
-// Search.js
+/* Search.js
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSearchContext } from "./SearchContext";
 
 function Search() {
     const [query, setQuery] = useState("");
     const [suggestions, setSuggestions] = useState([]);
-    const { setSearchQuery } = useSearchContext() // Подключение к контексту
-    const navigate = useNavigate();
+    /*const { setSearchQuery } = useSearchContext()
 
     const jobs = [
         "1C Developer", "Android Developer", "BI Analyst", "Business Analyst",
@@ -31,21 +29,19 @@ function Search() {
                 job.toLowerCase().includes(value.toLowerCase())
             );
             setSuggestions(filteredJobs);
+            console.log("Current suggestions: ", suggestions);
+
         } else {
             setSuggestions([]);
         }
     };
 
-    const handleSearch = (searchQuery) => {
-        setSearchQuery(searchQuery); // Сохраняем запрос в контексте
-        console.log("Поиск по запросу: ", searchQuery);
-        navigate("/empty-page"); // Переход на страницу с результатами
-    };
 
     const handleSuggestionClick = (suggestion) => {
+        console.log("Clicked suggestion: ", suggestion)
         setQuery(suggestion);
         setSuggestions([]);
-        handleSearch(suggestion); // Выполняем поиск при клике на предложение
+        handleSearch(suggestion);
     };
 
     const handleKeyPress = (event) => {
@@ -70,6 +66,7 @@ function Search() {
                         <div
                             key={index}
                             onClick={() => handleSuggestionClick(suggestion)}
+
                         >
                             {suggestion}
                         </div>
@@ -80,4 +77,4 @@ function Search() {
     );
 }
 
-export default Search;
+export default Search;*/

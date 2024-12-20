@@ -1,4 +1,4 @@
-// SearchContext.js
+/* SearchContext.js
 import React, { createContext, useContext, useState } from "react";
 
 // Create a context
@@ -20,4 +20,4 @@ export const SearchProvider = ({ children }) => {
     );
 };
 
-export default SearchContext;
+export default SearchContext;*/

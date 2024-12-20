@@ -1,78 +1,64 @@
-// EmptyPage.js
-import React, { useState, useEffect } from "react";
-import { useSearchContext } from "../searchEngine/SearchContext";
-import StatisticsTable from "../searchEngine/StatisticsTable";
-import axios from "axios";
-import JobStatistics, { fetchJobData } from "../searchEngine/JobStatistics";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
-
-function EmptyPage() {
-    const { searchQuery } = useSearchContext(); // Получаем запрос из контекста
-    const [skills, setSkills] = useState([]);
-    const [keywords, setKeywords] = useState([]);
+const EmptyPage = ({/* searchQuery*/ }) => {
+    const location = useLocation();
+    const searchQuery = location.state?.searchQuery || "";
+    const [vacancies, setVacancies] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const [error, setError] = useState(null);
 
-    const countOccurrences = (arr) => {
-        return arr.reduce((acc, item) => {
-            acc[item] = (acc[item] || 0) + 1;
-            return acc;
-        }, {});
-    };
-
-    const fetchToken = async () => {
-        try {
-            const response = await axios.get("http://localhost:8000/api/auth/token");
-            return response.data.access_token;
-        } catch (error) {
-            console.error("Ошибка при получении токена:", error);
-            throw error;
-        }
-    };
-
-
-    const handleJobData = (jobs) => {
-        const skills = [];
-        const keywords = [];
-
-        jobs.forEach((job) => {
-            const jobSkills = job.snippet?.requirement?.split(",") || [];
-            const jobKeywords = job.snippet?.responsibility?.split(" ") || [];
-
-            skills.push(...jobSkills.map((skill) => skill.trim()));
-            keywords.push(...jobKeywords.map((word) => word.trim()));
-        });
-
-        const skillCounts = countOccurrences(skills);
-        const keywordCounts = countOccurrences(keywords);
-
-        setSkills(Object.entries(skillCounts).map(([title, amount]) => ({ title, amount })));
-        setKeywords(Object.entries(keywordCounts).map(([title, amount]) => ({ title, amount })));
-
-        setLoading(false);
-    };
-
-    // Запрашиваем данные, когда searchQuery изменяется
     useEffect(() => {
-        if (searchQuery) {
-            JobStatistics(searchQuery).then((jobs) => {
-                if (jobs) {
-                    handleJobData(jobs);
+
+        const fetchVacancies = async () => {
+            setLoading(true);
+            try {
+                const response = await fetch(`http://localhost:8000/api/vacancies?query=${encodeURIComponent(searchQuery)}`);
+
+                if (!response.ok) {
+                    throw new Error("Ошибка получения вакансий");
                 }
-            });
+                const data = await response.json();
+                setVacancies(data.items); // Обработка ответа HH API
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (searchQuery) {
+            fetchVacancies();
         }
     }, [searchQuery]);
 
-    return (
-        <div className="job-statistics">
-            <h1>Анализ вакансий для "{searchQuery}"</h1>
-            {loading && <p>Загрузка...</p>}
-            {error && <p>{error}</p>}
+    if (loading) {
+        return <div>Загрузка...</div>;
+    }
 
-            <StatisticsTable title="Навыки" data={skills} />
-            <StatisticsTable title="Ключевые слова" data={keywords} />
+    if (error) {
+        return <div>Ошибка: {error}</div>;
+    }
+
+    return (
+        <div>
+            <h1>Результаты поиска для: {searchQuery}</h1>
+            {vacancies.length > 0 ? (
+                <ul>
+                    {vacancies.map((vacancy) => (
+                        <li key={vacancy.id}>
+                            <a href={vacancy.alternate_url} target="_blank" rel="noopener noreferrer">
+                                {vacancy.name}
+                            </a>
+                            <p>{vacancy.employer.name}</p>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>Вакансий не найдено</p>
+            )}
         </div>
     );
-}
+};
 
 export default EmptyPage;

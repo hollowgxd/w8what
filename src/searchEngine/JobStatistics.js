@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import StatisticsTable from "./StatisticsTable";
 import axios from "axios";
-import { useSearchContext } from "../searchEngine/SearchContext";
+/*import { useSearchContext } from "../searchEngine/SearchContext";*/
 
 const JobStatistics = () => {
-    const { searchQuery } = useSearchContext(); // Получаем запрос из контекста
+    /*const { searchQuery } = useSearchContext(); */
     const [skills, setSkills] = useState([]);
     const [keywords, setKeywords] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -74,7 +74,7 @@ const JobStatistics = () => {
     };
 
     // При поиске по запросу
-    React.useEffect(() => {
+    /*React.useEffect(() => {
         if (searchQuery) {
             fetchJobData(searchQuery).then((jobs) => {
                 if (jobs) {
@@ -82,7 +82,7 @@ const JobStatistics = () => {
                 }
             });
         }
-    }, [searchQuery]);
+    }, [searchQuery]);*/
 
     return (
         <div className="job-statistics">
