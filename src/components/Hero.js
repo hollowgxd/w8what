@@ -29,7 +29,6 @@ const Hero = () => {
                 job.toLowerCase().includes(value.toLowerCase())
             );
             setSuggestions(filteredJobs);
-            console.log("Current suggestions: ", suggestions);
 
         } else {
             setSuggestions([]);
@@ -38,7 +37,6 @@ const Hero = () => {
 
 
     const handleSuggestionClick = (suggestion) => {
-        console.log("Clicked suggestion: ", suggestion)
         setQuery(suggestion);
         setSuggestions([]);
         handleSearch(suggestion);
@@ -50,9 +48,7 @@ const Hero = () => {
         }
     };
     const handleSearch = (searchQuery) => {
-        /*setSearchQuery(searchQuery);*/
-        console.log("Поиск по запросу: ", searchQuery);
-        navigate("/empty-page", { state: { searchQuery } });
+        navigate("/results", { state: { searchQuery } });
 
     };
     return (

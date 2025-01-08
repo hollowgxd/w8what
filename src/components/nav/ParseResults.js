@@ -1,61 +1,91 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { getVacancies } from "../../server/requests.js";
 
-const ParseResults = ({/* searchQuery*/ }) => {
+const ParseResults = () => {
     const location = useLocation();
     const searchQuery = location.state?.searchQuery || "";
-    const [vacancies, setVacancies] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
 
+    const [vacancies, setVacancies] = useState([]);  // Состояние для вакансий
+    const [loading, setLoading] = useState(false);    // Состояние для загрузки
+    const [error, setError] = useState(null);         // Состояние для ошибок
+
+    // Загружаем вакансии при изменении searchQuery
     useEffect(() => {
-
-        const fetchVacancies = async () => {
-            setLoading(true);
-            try {
-                const response = await fetch(`http://localhost:8000/api/vacancies?query=${encodeURIComponent(searchQuery)}`);
-
-                if (!response.ok) {
-                    throw new Error("Ошибка получения вакансий");
+        const fetchData = async () => {
+            if (searchQuery) {
+                setLoading(true);
+                setError(null);
+                try {
+                    const data = await getVacancies(searchQuery); // Используем getVacancies для получения данных
+                    setVacancies(data);
+                } catch (err) {
+                    setError("Произошла ошибка при загрузке вакансий");
+                } finally {
+                    setLoading(false);
                 }
-                const data = await response.json();
-                setVacancies(data.items); // Обработка ответа HH API
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
             }
         };
 
-        if (searchQuery) {
-            fetchVacancies();
-        }
+        fetchData();
     }, [searchQuery]);
 
+    // Если данные загружаются или произошла ошибка
     if (loading) {
         return <div>Загрузка...</div>;
     }
 
     if (error) {
-        return <div>Ошибка: {error}</div>;
+        return <div>{error}</div>;
     }
 
     return (
-        <div>
-            <h1>Результаты поиска для: {searchQuery}</h1>
+        <div className="container my-5">
+            <div className="header text-center mb-4">
+                <h1 className="title">Требования на должность 1C Developer (Все)</h1>
+                <p className="subtitle">Анализ вакансий, основанный на данных HeadHunter</p>
+            </div>
+
+            {/* Данные из vacancies */}
             {vacancies.length > 0 ? (
-                <ul>
-                    {vacancies.map((vacancy) => (
-                        <li key={vacancy.id}>
-                            <a href={vacancy.alternate_url} target="_blank" rel="noopener noreferrer">
-                                {vacancy.name}
-                            </a>
-                            <p>{vacancy.employer.name}</p>
-                        </li>
-                    ))}
-                </ul>
+                <div className="row">
+                    {/* Таблица вакансий */}
+                    <div className="col-md-12">
+                        <h3 className="table-title">Список вакансий</h3>
+                        <table className="table table-bordered table-hover">
+                            <thead className="table-light">
+                            <tr>
+                                <th>Название</th>
+                                <th>Компания</th>
+                                <th>Город</th>
+                                <th>Ссылка</th>
+                                <th>Ключевые навыки</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {vacancies.map((vacancy, index) => (
+                                <tr key={index}>
+                                    <td>{vacancy.name}</td>
+                                    <td>{vacancy.employer?.name || "Не указано"}</td>
+                                    <td>{vacancy.area?.name || "Не указан"}</td>
+                                    <td>
+                                        <a
+                                            href={vacancy.alternate_url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Открыть
+                                        </a>
+                                    </td>
+                                    <td>{vacancy.skills}</td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             ) : (
-                <p>Вакансий не найдено</p>
+                <div className="text-center">Нет данных для отображения</div>
             )}
         </div>
     );

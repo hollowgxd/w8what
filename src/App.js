@@ -1,43 +1,29 @@
-import React, { useState } from "react";
-import "./App.css";
-/*import axios from "axios";*/
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import Header from "./components/Header";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header"; // Assuming these are correct imports
 import Hero from "./components/Hero";
-//import Footer from "./components/Footer";
+import ParseResults from "./components/nav/ParseResults";
 
-import ParseResults from './components/nav/ParseResults';
-
-
-
+import {getToken,accessToken} from "./server/apiOauth";
 
 function App() {
-  const [skills, setSkills] = useState([]);
-  const [keywords, setKeywords] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const countOccurrences = (arr) => {
-    return arr.reduce((acc, item) => {
-      acc[item] = (acc[item] || 0) + 1;
-      return acc;
-    }, {});
-  };
+  const [error, setError] = useState(null);
 
 
+
+    if (!accessToken)(getToken(accessToken));
 
   return (
-
       <Router>
         <div className="wrapper">
           <Header />
+          {error && <div className="error">Error: {error}</div>}
           <Routes>
             <Route path="/" element={<Hero />} />
-            <Route path="/empty-page" element={<ParseResults />} />
+            <Route path="/results" element={<ParseResults />} />
           </Routes>
         </div>
       </Router>
-
   );
 }
 
