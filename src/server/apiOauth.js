@@ -1,4 +1,4 @@
-let accessToken = "APPLKT5LFOPK9RLLJMT30I78NQLRH884NI2KT1R5000UH1BU8DB3L19R53NIPDTU";
+let accessToken = process.env.REACT_APP_ACCESS_TOKEN;
 let tokenExpiresAt = null;
 
 const getToken = async () => {
@@ -15,8 +15,9 @@ const getToken = async () => {
                 },
                 body: new URLSearchParams({
                     grant_type: "client_credentials",
-                    client_id: "QC74Q3IACC4D3N9REPMPQA5IN3JCGNKRTOADCGR7LMQE002SPEQGNGU3ADSCOOQ5",
-                    client_secret: "NPMU0E474CIUJ751Q6NGSDBR955P84D8B5V91R3K4NOQG649SD4IA3H7D8JUI43G",
+                    client_id: process.env.REACT_APP_CLIENT_ID,
+
+                    client_secret: process.env.REACT_APP_CLIENT_SECRET,
                 }),
             });
 
