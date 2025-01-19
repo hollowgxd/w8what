@@ -1,6 +1,6 @@
 // server
 const express = require("express");
-const { getVacancies } = require("./requests.js"); // Импортируем сервис для получения вакансий
+const { getVacancies } = require("./requests.js");
 const cors = require("cors");
 
 const app = express();
