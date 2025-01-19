@@ -1,70 +1,473 @@
-# Getting Started with Create React App
+Федеральное государственное бюджетное образовательное учреждение высшего образования “МИРЭА – Российский технологический университет”
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Институт перспективных технологий и индустриального программирования
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Практическая работа на тему:
+“Разработка web приложения для поиска и обработки данных о вакансиях с различных источников в открытом доступе”
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Выполнили:
+Ворсин К.А.
+Наротнев Г.В.
+Викторов А.Д.
+Гуськов Н.
+Бурлак М.А.
 
-### Analyzing the Bundle Size
+	Проверил:
+Макиевский С. Е.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Москва 2024 г.
+ 
+Оглавление
+Введение	3
+Глава 1. Теоретическая часть	4
+1.1.	Описание программируемой системы	4
+1.2.	Методология разработки	4
+1.3.	Обзор существующих решений	5
+1.4.	Прототипирование и дизайн	5
+1.5.	Требования к программируемой системе	7
+1.6.	Метод и технология тестирования программируемой системы	7
+Глава 2. Технологическая часть	8
+2.1.	Диограммы	8
+Глава 3. Практическая часть	11
+3.1.	Дизайн прототип	12
+3.2.	Реализация требований к системе	12
+3.3.	Функциональное тестрирование программного продукта	12
+3.3.	Инструкция по эксплуатации	12
+Заключение	14
+Список используемых источников	15
+Приложения	15
+Приложение А – Auth System	15
+Приложение B – Core System	15
+Приложение C – TaskaManger System	15
+Приложение D – NoteManager System	15
+Приложение E – CloudStorageManager System	15
+Приложение F – Unit-tests	15
+ 
+Введение
+На протяжении всего срока разработки у членов нашей команды были следующие основные роли, распределенные по степени умений индивида в той или иной сфере:
+Ворсин К.А – Тимлид
+Наротнев Г.В. – Frontend разработчик Гуськов Н. – Backend разработчик Бурлак М.А. – Тестировщик
+Викторов А.Д. – Бизнес аналитика
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Наша команда поставила перед собой задачу разработки web-приложения, которое посредством интеграции с API самых популярных сайтов по поиску работы, будет составлять таблицу с подсчетом навыков и технологий, а также сортировать результаты по частоте упоминания потенциальным нанимателем. Целью практической работы является разработка такого web-приложения.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Цель работы: Разработка web приложения для поиска и обработки данных о вакансиях с различных источников в открытом доступе
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Задачи работы
+1.	Описать программируемую систему.
+2.	Рассмотреть существующие решения-аналоги по данной, либо смежной темам.
+3.	Сформировать требования к программируемой системе.
+4.	Спроектировать необходимые диаграммы.
+5.	Реализовать программный продукт в соответствии с требованиями.
+6.	Провести функциональное тестирование программного продукта.
+7.	Составить инструкцию по использованию программного продукта.
+8.	Составить отчет по работе.
+9.	Сдать отчет и представить его к защите.
+
+
+В качестве основных методов исследования применены анализ, синтез, сравнение и
+моделирование. Практическая реализация поставленной задачи соответствует основным подходам к разработке программного обеспечения.
+Информационной базой исследования являются открытые источники, в том числе доступные в сети Интернет, а также материалы курса «Технологии индустриального программирования», доступные через систему дистанционного обучения РТУ МИРЭА.
+ 
+В данном отчете будет представлен процесс разработки программного продукта, в том числе теоретический обзор области и системы, технологическое проектирование и описание системы. а также непосредственно результаты разработки.
+
+
+
+Глава 1. Теоретическая часть
+1.1.	Описание программируемой системы
+
+Web-приложение по поиску самых популярных навыков и технологий и их сортировки предназначено для начинающих специалистов, в особенности планирующих работать в сфере IT. Оно позволит на старте изучения ознакомиться с технологиями которые чаще всего используются в коммерческой разработке приложений, систем и других компонентов. Основные компоненты клиентской части системы:
+•	Диалоговое окно с кнопками и функциональным поиском.
+•	Ведение заметок: создание структурированных текстовых заметок.
+•	Управление файлами: загрузка, хранение и организация файлов в облачном пространстве.
+•	Безопасность: авторизация и аутентификация с использованием JWT, защита данных пользователей.
+Также организована имитация серверной части приложения, которая позволит далее расширять функционал и значительно сократит время взаимодействия модулей организующих обработку данных и вывод их на клиентскую часть сервиса. Среди ее компонентов следующие:
+
+•	server – модуль который организует запуск сервера, получает информацию о портах и запросах.
+•	apiOauth – модуль аутентификации и авторизации всего приложения к сторонним API.
+•	requests – расширяемый модуль управления запросами и обработки результатов для дальнейшего вывода на клиентской части.
+•	sheduler – модуль генерации запланированных запросов работающий с большими данными и отвечающий за их загрузку в локальное хранилище.
+•	buffer – директория для хранения результатов запросов обработанных сервером изолировано от клиентской части, представленных в упрощенном для вывода формате.
+
+1.2.	Методология разработки
+
+Методология Agile — это популярный подход, в котором основное внимание уделяется гибкости, сотрудничеству и оптимизации процессов для реализации качественного проекта. Это итеративный подход, и приоритет в нем отдается обратной связи от владельца продукта и адаптации к изменяющимся требованиям. Цикл разработки ПО по Agile-методологии можно разбить на шесть этапов: планирование, проектирование, разработка, тестирование, развертывание и обслуживание.
+Основные принципы Agile:
+
+1.	Люди и взаимодействие важнее процессов и инструментов. приоритетом, что способствует улучшению коммуникации.
+2.	Работающий продукт важнее исчерпывающей документации — команды фокусируются на создании функционирующих частей продукта, которые можно тестировать и внедрять.
+3.	Сотрудничество с заказчиком важнее согласования условий контракта — постоянная обратная связь от заказчика помогает корректировать курс и удовлетворять текущие потребности. 
+4.	Готовность к изменениям важнее следования первоначальному плану — Agile позволяет быстро менять приоритеты в зависимости от новых данных или требований.
+Мы выбрали Agile, в частности подход Kanban, потому что все из нас начинающие программисты с различным набором профессиональных навыков и личных качеств. Также при разделении задач было важно чтобы каждый мог взять ответственность за другого, а своей частью кода не затронуть функционал другого. Постоянное введение команды в прогресс разработки разных уровней приложения формировало правильную общую картину о текущем состоянии разрабатываемой системы и подчеркивало важность каждого отдельного задания. 
+
+
+
+1.3.	Обзор существующих решений
+
+Анализ аналогичных решений показал, что на рынке существуют следующие продукты:
+
+1.	Hh Карьера — собственный разностороний сервис помощи в поиске работы, в том числе имеющий информацию о навыках, указывает их косвенное влияние на уровень зарплаты. Недостатки: конкретный раздел с навыками довольно трудно найти на сайте, сервис не предоставляет точного количества вакансий по указанным навыкам, информация о влиянии владения навыком на заработную плату имеет псевдодоказательную базу, в связи с тем что многие оставляют графу оклада пустой, указывают дополнительно другие навыки в требованиях.
+2.	easyoffer — сервис для подготовки к собеседованиям, предоставляющий услуги менторства, подсчитывающий упоминания навыков, по схожим с нашим функционалом алгоритмам. Недостатки: устаревший, неприятный глазу дизайн, явно ограниченный перечень IT вакансий, не дает возможности посредством поиска сразу найти нужную вакансию из перечня. ограничен в расширении имеющихся функций.
+Наше приложение делает акцент на качественную информацию, исключает напрямую не касающийся основной цели функционал, удобно как уже определившемуся, так и неопределившемуся с будущей работой пользователю.
+
+
+1.4.	Прототипирование и дизайн
+
+Для разработки дизайна интерфейса мы использовали Figma. Основные принципы дизайна:
+
+•	Минимализм и интуитивность.
+•	Совместимость с различными устройствами.
+•	Быстрый доступ к основным функциям.
+
+Прототип включает:
+ 
+•	Основную страницу с заголовком.
+•	Экран с перечнем вакансий и быстрым поиском по ним.
+ 
+ 
+•	Страницу с результатами поиска.
+
+
+1.5.	Требования к программируемой системе Функциональные требования:
+1.	Правильная авторизация приложения в стороннем API.
+2.	Взаимодействия с .env файлом для избежания переавторизаций приложения.
+3.	Изолирование авторизованных запросов к API от клиента.
+4.	Автоматизация регулярных запросов.
+5.	Работа с JSON результатами: подсчет упоминаний и сортировка.
+6.	Буферизация обработанных данных.
+
+Нефункциональные требования:
+
+1.	Высокая производительность и масштабируемость.
+2.	Удобство использования интерфейса.
+3.	Защита данных приложения от компрометирования.
+
+
+
+1.6.	Метод и технология тестирования программируемой системы
+
+Для тестирования запросов использовался Postman. Frontend тестировался вручную без применения автоматизированных тестов.
+Мы использовали модульные тесты для проверки отдельных компонентов системы. Для функционального тестирования применялись автоматизированные сценарии, разработанные с использованием Pytest. Тестирование охватило следующие аспекты:
+•	Корректность обработки пользовательских запросов.
+•	Надежность сохранения данных.
+•	Производительность под нагрузкой.
+ 
+Глава 2. Технологическая часть
+2.1.	Диаграммы
+
+
+Use-Case диграмма:
+ 
+
+ 
+ER-диаграмма
+
+ 
+Глава 3. Практическая часть
+2.1.	Описание программируемой системы
+
+Система реализована с использованием Next.js для backend и React для frontend. Архитектура проекта следует Onion-архитектуре, обеспечивая четкое разделение логики.
+
+
+
+2.2.	Реализация требований к системе
+
+Функциональные требования выполнены не полностью, присутствует имитация серверной части, но данные запрашивает и обрабатывает клиентская часть.  Авторизация к hh API осуществлена, полученные токены скрываются от пользователя и хранятся в окружении. У разработчиков присутствует индивидуальный файл окружения, что ограничивает их влияние на основные методы приложения. Данные получаемые из ответов правильно обрабатываются и сортируются, возможно их сохранение для будущей быстрой загрузки результатов. 
+
+
+
+
+2.3.	Функциональное тестирование программного продукта
+
+Тестирование показало высокую стабильность работы системы, время работы отличается от ожиданий, сбоев и критических ошибок не выявлено. Запросы правильно формируются в зависимости от ввода пользователя, ответы правильно обрабатываются, сортируются и выводятся.
+
+
+2.4.	Инструкция по эксплуатации
+
+
+Для начала работы с системой пользователь должен:
+
+1.	Выбрать из списка интересующую вакансию или найти через поиск.
+2.	После загрузки пользователь будет переведен на страницу с самыми востребованными технологиями и количеством их упоминания в вакансиях.
+
+
+
+Заключение
+Практическая работа позволила нашей команде:
+
+1.	Овладеть навыками командной разработки.
+2.	Применить современные технологии и подходы в создании web-приложений.
+3.	Создать полноценный программный продукт, соответствующий заявленным требованиям.
+
+Список используемых источников
+1.	Agile Manifesto [Электронный ресурс]. – URL: https://agilemanifesto.org/ (дата обращения: 20.12.2024).
+ 
+2.	Яндекс практикум. Методология Kanban [Электронный ресурс]. – URL: https://practicum.yandex.ru/blog/metodologiya-kanban/ (дата обращения: 20.12.2024).
+3.	hhAPI Documentation [Электронный ресурс]. – URL: https://dev.hh.ru/ (дата обращения: 20.12.2024).
+4.	React Documentation [Электронный ресурс]. – URL: https://react.dev/ (дата обращения: 20.12.2024).
+5.	Tailwind Documentation [Электронный ресурс]. – URL: https://tailwindcss.com/docs/installation (дата обращения: 20.12.2024).
+
+6.	SQLAlchemy Documentation [Электронный ресурс]. – URL: 
+7.	Mozilla Developer Network (MDN). HTML, CSS, JavaScript и другие веб-технологии [Электронный ресурс]. – URL: https://developer.mozilla.org/ (дата обращения: 20.12.2024).
+8.	GitHub Actions Documentation [Электронный ресурс]. – URL: https://docs.github.com/en/actions (дата обращения: 20.12.2024).
+9.	Docker Documentation [Электронный ресурс]. – URL: https://docs.docker.com/ (дата обращения: 20.12.2024).
+10.	Redis Documentation [Электронный ресурс]. – URL: https://redis.io/documentation (дата обращения: 20.12.2024).
+11.	Node.js Documentation [Электронный ресурс]. – URL: https://nodejs.org/en/docs/ (дата обращения: 20.12.2024).
+12.	Express.js Documentation [Электронный ресурс]. – URL: https://expressjs.com/ (дата обращения: 20.12.2024).
+13.	Nginx Documentation [Электронный ресурс]. – URL: https://nginx.org/en/docs/ (дата обращения: 20.12.2024).
+14.	Next.js Documentation [Электронный ресурс]. – URL: https://nextjs.org/docs (дата обращения: 20.12.2024).
+15.	MongoDB Documentation [Электронный ресурс]. – URL: https://www.mongodb.com/docs/ (дата обращения: 20.12.2024).
+16.	PostgreSQL Documentation [Электронный ресурс]. – URL: https://www.postgresql.org/docs/ (дата обращения: 20.12.2024).
+ 
+17.	Kubernetes Documentation [Электронный ресурс]. – URL: https://kubernetes.io/docs/ (дата обращения: 20.12.2024).
+18.	WebSocket Documentation [Электронный ресурс]. – URL: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API (дата обращения: 20.12.2024).
+ 
+Приложения
+Приложение A – apiOauth.js
+let accessToken = process.env.REACT_APP_ACCESS_TOKEN;
+let tokenExpiresAt = null;
+
+const getToken = async () => {
+    const currentTime = Math.floor(Date.now() / 1000);
+
+    if (!accessToken || (tokenExpiresAt && currentTime >= tokenExpiresAt)) {
+        try {
+            console.log("Запрашиваем новый токен...");
+
+            const response = await fetch("https://hh.ru/oauth/token", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams({
+                    grant_type: "client_credentials",
+                    client_id: process.env.REACT_APP_CLIENT_ID,
+
+                    client_secret: process.env.REACT_APP_CLIENT_SECRET,
+                }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Ошибка получения токена: ${errorData.error_description || "Неизвестная ошибка"}`);
+            }
+
+            const data = await response.json();
+
+
+            accessToken = data.access_token;
+            tokenExpiresAt = currentTime + data.expires_in;
+
+            console.log("Токен успешно получен:", accessToken);
+        } catch (error) {
+            console.error("Ошибка получения токена:", error.message);
+            throw new Error("Ошибка авторизации HH API");
+        }
+    } else if ((tokenExpiresAt - currentTime) <= 360) {
+        // Если срок жизни токена менее 6 минут, не обновляем его
+        throw new Error("Вы пытаетесь получить токен слишком рано");
+    } else {
+        console.log("Используем кэшированный токен");
+    }
+
+    return accessToken;
+};
+
+module.exports = { getToken, accessToken };
+
+Приложение B – requests.js
+import axios from 'axios';
+import wordFilter from "../searchEngine/wordFilter";
+const { accessToken } = require("./apiOauth.js");
+
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+// Функция для получения ключевых навыков из вакансий
+const getKeySkills = async (query) => {
+    let allVacancies = [];
+    let page = 1;
+    const per_page = 50;
+
+    const url = "https://api.hh.ru/vacancies";
+
+    try {
+        // Запрос на все страницы вакансий
+        while (true) {
+            const response = await axios.get(url, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+                params: {
+                    text: query,
+                    per_page: per_page,
+                    page: page,
+                },
+            });
+
+            const vacancies = response.data.items;
+            if (vacancies.length === 0) break;
+
+            allVacancies.push(...vacancies);
+            page++;
+            if ((page+1) > response.data.pages) break;
+
+            await delay(3000);
+        }
+
+        const allSkills = [];
+
+        // Подробный запрос по каждой вакансии
+        const enrichedVacancies = [];
+        for (const vacancy of allVacancies) {
+            try {
+                const vacancyResponse = await axios.get(
+                    `https://api.hh.ru/vacancies/${vacancy.id}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`,
+                        },
+                    }
+                );
+
+                const vacancyData = vacancyResponse.data;
+                const skills =
+                    vacancyData.key_skills?.map((skill) => skill.name).join(", ") ||
+                    "Не указано";
+
+                enrichedVacancies.push({
+                    ...vacancy,
+                    skills,
+                });
+                allSkills.push(...vacancyData.key_skills.map(skill => skill.name));
+                // Нужный нам массив для вывода на фронт
+            } catch (err) {
+                console.error(
+                    `Ошибка при запросе деталей вакансии ${vacancy.id}:`,
+                    err.message
+                );
+                continue;
+            }
+        }
+
+        // Фильтруем ключевые навыки
+        const filteredSkills = allSkills.filter((skill) =>
+            wordFilter(skill)
+        );
+
+        // Подсчитываем количество упоминаний каждого навыка
+        const skillCounts = filteredSkills.reduce((acc, skill) => {
+            acc[skill] = (acc[skill] || 0) + 1;
+            return acc;
+        }, {});
+
+        // Сортируем по убыванию
+        const sortedSkills = Object.entries(skillCounts)
+            .sort((a, b) => b[1] - a[1])
+            .map(([skill, count], index) => ({ rank: index + 1, skill, count })
+		.slice(0, 100));
+
+
+        return {
+            enrichedVacancies: allVacancies,
+            skillCounts: sortedSkills,
+        };
+    } catch (error) {
+        console.error("Ошибка при получении ключевых навыков:", error.message);
+        throw new Error("Ошибка при получении ключевых навыков");
+    }
+};
+
+export { getKeySkills };
+export const getTopSkills = async (query) => {
+    const { skillCounts } = await getKeySkills(query);
+    return skillCounts;
+};
+
+
+Приложение D – scheduler.js
+import fs from "fs/promises";
+import {getKeySkills, getTopSkills} from "./requests.js";
+
+const updateSkillsData = async () => {
+    try {
+        const query = "Frontend Developer"; //заменить в будущем
+        const { skillCounts } = await getKeySkills(query);
+
+        //объект для сохранения
+        const data = {
+            updated_at: new Date().toISOString(),
+            skills: getTopSkills
+        };
+
+        // Сохраняем в JSON-файл
+        await fs.writeFile("skills.json", JSON.stringify(data, null, 2));
+        console.log("Данные успешно обновлены");
+    } catch (error) {
+        console.error("Ошибка при обновлении данных:", error.message);
+    }
+};
+
+// Запуск скрипта
+updateSkillsData();
+
+
+Приложение E – server.js
+
+// server
+const express = require("express");
+const { getVacancies } = require("./requests.js");
+const cors = require("cors");
+
+const app = express();
+const port = 8000;
+
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+    credentials: true,
+}));
+// Эндпоинт для получения вакансий
+app.get("/api/vacancies", async (req, res) => {
+    const query = req.query.query;
+
+    if (!query) {
+        return res.status(400).json({ error: "Параметр query не найден" });
+    }
+
+    try {
+        const vacancies = await getVacancies(query); // Получаем вакансии с использованием функции
+        res.json(vacancies); // Отправляем вакансии клиенту
+    } catch (error) {
+        console.error("Ошибка при получении вакансий:", error);
+        res.status(500).json({ error: "Ошибка при получении вакансий" });
+    }
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
+ 
+
