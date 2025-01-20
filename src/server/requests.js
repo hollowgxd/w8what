@@ -1,5 +1,5 @@
 import axios from 'axios';
-import wordFilter from "../searchEngine/wordFilter";
+import wordFilter from "./wordFilter";
 const { accessToken } = require("./apiOauth.js");
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -85,8 +85,7 @@ const getKeySkills = async (query) => {
         // Сортируем по убыванию
         const sortedSkills = Object.entries(skillCounts)
             .sort((a, b) => b[1] - a[1])
-            .map(([skill, count], index) => ({ rank: index + 1, skill, count })
-            .slice(0, 100));
+            .map(([skill, count], index) => ({ rank: index + 1, skill, count }));
 
 
         return {
